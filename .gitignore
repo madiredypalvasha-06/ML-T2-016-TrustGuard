@@ -24,3 +24,10 @@ Thumbs.db
 # Local scratch
 *.log.bak
 /tmp/
+
+# Large recording artefacts (uploaded to Drive/YouTube, not versioned)
+submission/*.mp4
+submission/*.webm
+
+# Transient render output
+.paper_render.html

@@ -17,6 +17,38 @@ a calibrated reliability signal, **and** an explicit, auditable
 
 ---
 
+## Screenshots
+
+**Mission Control — a clean input. The verdict is `TRUST` and all three
+guardrails are green.**
+
+![Mission Control, trusted clean input](submission/screenshots/01_mission_control_trust.png)
+
+**Mission Control — a heavily corrupted input. The verdict flips to
+`ABSTAIN`/`REVIEW` and the feature-familiarity guardrail goes red, even though
+the softmax layer remains confident.**
+
+![Mission Control, abstaining on an out-of-distribution input](submission/screenshots/02_mission_control_abstain_ood.png)
+
+**Drift Monitor — the most dangerous regime. The system still accepts 70.2% of
+the stream, which looks healthy, but accuracy on those accepted inputs has
+collapsed to 38.4%. The `WATCHPOINT` alarm fires. A naive classifier shows
+nothing wrong here.**
+
+![Drift Monitor raising a watchpoint alarm](submission/screenshots/03_drift_monitor_watchpoint.png)
+
+**Calibration Lab — the raw softmax output is systematically over-confident;
+temperature scaling (T = 1.1824) fits the diagonal.**
+
+![Calibration Lab reliability diagrams](submission/screenshots/04_calibration_lab.png)
+
+**Method Showdown — all seven uncertainty signals, head-to-head on
+error-detection and IN-vs-OUT AUROC.**
+
+![Method Showdown comparison](submission/screenshots/05_method_showdown.png)
+
+---
+
 ## The headline finding
 
 The same trained model, the same checkpoint, two environments:

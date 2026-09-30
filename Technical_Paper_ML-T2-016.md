@@ -295,7 +295,15 @@ The single temperature-scaled model reaches **72.02%** accuracy with excellent c
 | Single model (temp-scaled, T=1.1824) | **0.7202** | **0.0406** | 0.3838 |
 | Deep ensemble (temp-scaled) | **0.7718** | 0.1080 | **0.3368** |
 
-The ensemble recovers a substantial **+5.16 pp** in accuracy over the single model while also improving the Brier score — the standard accuracy–uncertainty correlation benefit of ensembling. Training history and reliability diagrams are shown in the figures (`results/figures/training_history.png`, `results/figures/reliability_raw_softmax.png`, `results/figures/reliability_temp_scaled.png`).
+The ensemble recovers a substantial **+5.16 pp** in accuracy over the single model while also improving the Brier score — the standard accuracy–uncertainty correlation benefit of ensembling.
+
+![Reliability diagram, raw softmax vs temperature-scaled](results/figures/reliability_temp_scaled.png)
+
+*Figure 1 — Reliability of the baseline on the clean held-out test set. Left: the raw softmax output (T = 1.0) is systematically over-confident, with predictions bunched against the right edge of the diagram. Right: after temperature scaling (T = 1.1824) the diagonal fit is close, and the lower panel shows the confidence histogram re-centred under it. This is the calibration problem temperature scaling solves — and only this problem.*
+
+![Baseline training history](results/figures/training_history.png)
+
+*Figure 2 — Baseline training history over 24 epochs. Left: cross-entropy loss. Right: accuracy on the 5k calibration split and the 10k held-out test split, tracked every epoch. The two curves track closely, which is the visual check that the calibration split is a fair proxy for test performance and therefore a legitimate basis for fitting temperature and abstention thresholds.*
 
 ### 6.2 Error-detection AUROC on clean test
 
@@ -326,6 +334,10 @@ Abstaining on the most uncertain predictions sharply raises accuracy on the acce
 | B. MC Dropout (mutual info) | 0.7202 | 0.7274 | 0.7357 | 0.7544 | 0.7736 | 0.8280 |
 
 With the softmax signal, deciding to act on only the most reliable half of inputs raises accuracy by **+19.6 pp** (72.0% → **91.6%**). This is the strong qualitative result of selective classification: refusing to act beats guessing.
+
+![Risk-coverage curves on the clean test set](results/figures/final_risk_coverage_clean.png)
+
+*Figure 3 — Risk–coverage on the clean test set, all seven signals. Each curve plots accuracy on the accepted fraction of inputs (x, coverage) against that accuracy (y, risk-free accuracy). Two readings matter. First, every *answer-certainty* signal (softmax, entropy, MC-Dropout, ensemble) rises steeply as coverage falls — abstaining works. Second, the **Mahalanobis curve is the only one that slopes downward**: ranking clean inputs by familiarity and dropping the most unfamiliar makes accuracy *worse* (0.77 → 0.70 at 50% coverage). Familiarity is not a proxy for error on in-distribution data, which is precisely why it earns its place in the shift experiments of §6.5 rather than here. Ensemble entropy is the strongest curve throughout.*
 
 ### 6.4 Degradation under distribution shift
 
@@ -371,6 +383,8 @@ The most striking result. On Gaussian noise the confidence signals are *inverted
 
 Softmax confidence has an IN-vs-OUT AUROC of **0.31** on Gaussian noise — *worse than a coin flip*. The model is not merely uncertain about such inputs; it is confidently wrong in a way that actively misleads a naive threshold. In contrast, **Mahalanobis distance (0.9187)** and **ensemble variance (0.9021)** detect these inputs almost perfectly. No single method wins everywhere — confirming that the *fusion* of confidence, uncertainty and familiarity is the correct design, exactly as the problem statement anticipates.
 
+The right-hand column deserves equal emphasis. On **contrast** corruption every method collapses to near-chance IN-vs-OUT AUROC (0.51–0.82), including the two that aced Gaussian noise. Contrast at severity 5 desaturates the image but leaves the *object* intact, so the penultimate features stay close to their class clusters and the network's errors do not look unfamiliar in feature space. **Generalisation caveat:** a detector validated on one corruption is not validated on corruption. Any deployment would need its familiarity guardrail re-validated per shift type, and the dashboard's Drift Monitor exists to make that re-validation a routine operator action rather than a research task.
+
 ### 6.6 Abstention payoff under strong shift
 
 Selectivity still helps on milder shifts, but reaches a floor on the most destructive corruption:
@@ -394,6 +408,14 @@ Selectivity still helps on milder shifts, but reaches a floor on the most destru
 | D. Mahalanobis distance | 0.7312 | 0.7141 | −0.0171 |
 
 On **fog** (a shift the model can partially handle), abstaining on 10% of inputs buys **+4.1 / +3.9 pp** of accuracy. On **severe Gaussian noise** where the model is uniformly and confidently wrong, abstention reaches a floor: every input is unreliable, so there is no low-risk subset — the only correct behaviour is to flag the *entire stream* (which the familiarity guardrail does; §6.7).
+
+![Risk-coverage under fog severity 5](results/figures/final_risk_coverage_fog_sev5.png)
+
+*Figure 4 — Risk–coverage under fog at severity 5, the shift the model partially survives. Every answer-certainty signal still climbs above the full-set accuracy, so selectivity remains useful: the ensemble-entropy curve reaches 0.7700 at 90% coverage against a full-set accuracy of 0.7312. The Mahalanobis curve again falls below baseline. This is the regime the deployed system in §6.7 is actually tuned for.*
+
+![Risk-coverage under severe Gaussian noise](results/figures/final_risk_coverage_gaussian_noise_sev5.png)
+
+*Figure 5 — Risk–coverage under severe Gaussian noise. Every curve is nearly flat and sits close to the full-set accuracy of 0.1682: with the signal destroyed, no ordering of the inputs produces a meaningfully better subset. No abstention threshold can fix this, which is why the deployed system responds by collapsing its *trust rate* to 22% rather than by trying to select good inputs.*
 
 ### 6.7 The deployed verdict: fused trust/abstain
 
@@ -519,11 +541,22 @@ On clean inputs the system reports **TRUST** with three green guardrails; on sev
 
 ### C. Figures produced during the study
 
-- `results/figures/training_history.png` — baseline training/validation curves.
-- `results/figures/training_history_member_{1,2,3}.png` — ensemble member curves.
-- `results/figures/reliability_raw_softmax.png`, `reliability_temp_scaled.png` — clean reliability diagrams.
-- `results/figures/risk_coverage_clean.png`, `risk_coverage_shift_{fog,gaussian_noise}_sev5.png` — baseline risk–coverage.
-- `results/figures/final_risk_coverage_{clean,gaussian_noise_sev5,fog_sev5}.png` — ensemble risk–coverage.
+Twelve figures are generated by the pipeline and committed under `results/figures/`. Five are embedded in Section 6 and referenced as Figures 1–5 above:
+
+| Figure | File | Section |
+|---|---|---|
+| 1 | `reliability_temp_scaled.png` | §6.1 |
+| 2 | `training_history.png` | §6.1 |
+| 3 | `final_risk_coverage_clean.png` | §6.3 |
+| 4 | `final_risk_coverage_fog_sev5.png` | §6.6 |
+| 5 | `final_risk_coverage_gaussian_noise_sev5.png` | §6.6 |
+
+The remaining seven are available for inspection and are regenerated by the same scripts:
+
+- `reliability_raw_softmax.png` — reliability diagram of the uncalibrated softmax output, for direct comparison with Figure 1.
+- `risk_coverage_clean.png`, `risk_coverage_shift_fog_sev5.png`, `risk_coverage_shift_gaussian_noise_sev5.png` — the single-model (step 3) counterparts of Figures 3–5, useful for isolating the ensemble's contribution.
+- `training_history_member_{1,2,3}.png` — training curves for the three additional ensemble members.
+
 
 ### D. Example machine-readable verdict (excerpt)
 
