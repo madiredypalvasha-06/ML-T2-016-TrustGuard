@@ -42,10 +42,10 @@ madiredypalvasha@gmail.com
 > Use the address you will still have access to after the internship.
 
 ### College & Department
-⚠️ **Your input.** Format: `<College/University name> — <Department>`.
-Example: `XYZ College of Engineering — Computer Science (AI & Machine Learning)`.
-I could not find this recorded anywhere in the project files, and guessing it on
-a formal submission form is not worth the risk.
+```
+Woxsen University — B.Tech (AIML), 3rd Year
+```
+> Woxsen University · B.Tech in Artificial Intelligence & Machine Learning (AIML) · Third year
 
 ### Project ID + Project Title
 ```
@@ -636,7 +636,7 @@ Yes , I Confirm
 
 ## Pre-submission checklist
 
-- [ ] **College & Department** filled in (⚠️ only unknown required field)
+- [x] College & Department: `Woxsen University — B.Tech (AIML), 3rd Year`
 - [ ] Technical Paper PDF uploaded — `Technical_Paper_ML-T2-016.pdf`, 0.82 MB ✓
 - [ ] All 5 screenshots uploaded from `submission/screenshots/` ✓
 - [ ] Demo URL live **or** video link pasted and verified in an incognito window
