@@ -147,9 +147,9 @@ def final_results():
 @st.cache_resource(show_spinner="Computing baseline clean-test stats…")
 def clean_stats():
     res = engine.get_resources()
-    from src.data import get_clean_datasets
+    from src.data import get_app_datasets
     from src.evaluate import score_dataset
-    _, _, test_ds = get_clean_datasets()
+    _, test_ds = get_app_datasets()
     loader = torch.utils.data.DataLoader(test_ds, batch_size=256, shuffle=False)
     pb, yb, sb, _ = score_dataset(res["base"], loader, res["temp"], res["device"])
     mc_p, mc_y, mc_s, _ = score_dataset(res["base"], loader, res["temp"],
@@ -163,7 +163,7 @@ def _verdict(source, idx, corr, sev, coverage, upload_key):
         return engine.predict_one(engine.upload_buffer[upload_key],
                                   coverage=coverage)
     if source == "clean":
-        _, _, test_ds = engine_get_clean()
+        _, test_ds = engine_get_clean()
         x = test_ds[idx][0]
     else:
         xs, _ = engine.get_shift_data(corr, sev)
@@ -200,7 +200,7 @@ def page_mission_control():
     with c1:
         st.markdown('<div class="panel" style="margin-top:0;">'
                     '<h3>Input Feed</h3></div>', unsafe_allow_html=True)
-        _, _, test_ds = engine_get_clean()
+        _, test_ds = engine_get_clean()
         source = st.radio("source", ["Clean CIFAR-10", "Corrupted sample",
                                      "Upload image"], horizontal=True)
         idx = st.slider("sample index", 0, 9999, 137)
@@ -232,7 +232,7 @@ def page_mission_control():
         else:
             src_kind = "clean" if source == "Clean CIFAR-10" else "corrupted"
             if source == "Clean CIFAR-10":
-                _, _, test_ds = engine_get_clean()
+                _, test_ds = engine_get_clean()
                 x = test_ds[idx][0]
                 origin = f"clean test #{idx}"
             else:
@@ -298,8 +298,8 @@ def page_mission_control():
 
 @st.cache_resource(show_spinner=False)
 def engine_get_clean():
-    from src.data import get_clean_datasets
-    return get_clean_datasets()
+    from src.data import get_app_datasets
+    return get_app_datasets()
 
 
 def page_drift_monitor():

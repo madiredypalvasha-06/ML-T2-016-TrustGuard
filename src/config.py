@@ -17,6 +17,9 @@ SEED = 42
 # --- data ---
 CIFAR_DIR = os.path.join(DATA_DIR, "cifar-10")
 CIFAR10C_DIR = os.path.join(DATA_DIR, "CIFAR-10-C")
+# Image subset the deployed app reads instead of downloading CIFAR-10.
+# Regenerate with scripts/06_build_app_images.py.
+APP_IMAGES = os.path.join(BASE_DIR, "assets", "app_images.npz")
 CIFAR10C_URL = (
     "https://github.com/hendrycks/robustness/releases/download/1.0/cifar-10-c.tar"
 )

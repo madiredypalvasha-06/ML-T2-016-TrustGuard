@@ -47,8 +47,12 @@ interact with the dashboard themselves. It is the strongest option for the
 * The four model checkpoints, the fitted temperature and the Mahalanobis
   statistics are all committed under `checkpoints/`, so the deployed app uses
   exactly the weights the paper reports. No retraining is needed.
-* If the app cold-starts slowly the first time (CIFAR-10 download), reload
-  once. Subsequent loads are fast.
+* **The app does not download CIFAR-10.** It reads `assets/app_images.npz`, a
+  30 MB commit holding only the images the app actually touches. This matters
+  more than it looks: the dataset is not in the repository, so a cold start
+  previously pulled 170 MB from the Toronto mirror every time, which routinely
+  took over 20 minutes. Expect a cold start of a few seconds instead.
+  Regenerate the file with `python scripts/06_build_app_images.py`.
 * Free tier gives 1 GB RAM, which is ample here: the whole ensemble is
   4 x 2.2 M parameters.
 * If you would rather not publish a public app, skip to Route B.

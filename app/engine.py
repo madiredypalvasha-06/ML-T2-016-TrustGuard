@@ -58,12 +58,11 @@ def _members_ready():
 @st.cache_resource(show_spinner=False)
 def _fit_trust_thresholds(coverage, device, profile):
     """Evidence-based abstention thresholds, fitted on the calibration split."""
-    from src.data import get_clean_datasets
-    _, cal_ds, _ = get_clean_datasets()
-    rng = np.random.RandomState(42)
-    idx = rng.choice(len(cal_ds), 600, replace=False)
-    cal_x = torch.stack([cal_ds[i][0] for i in idx])
-    cal_y = torch.tensor([cal_ds[i][1] for i in idx])
+    from src.data import get_app_datasets
+    cal_ds, _ = get_app_datasets()
+    # get_app_datasets already stores these 600 images in the order this used to
+    # draw them, so the fitted thresholds are unchanged.
+    cal_x, cal_y = cal_ds.tensors
 
     res = get_resources()
     if res["members"] is not None:
@@ -196,16 +195,17 @@ def _threshold_hint(res, coverage):
 def scan_shift(corr, severity, coverage=0.9, max_n=800, device=None):
     """Corrupted batch scan with labels for the drift monitor."""
     res = get_resources()
-    from src.data import get_shift_data
+    from src.data import get_app_datasets, get_shift_data
     device = res["device"]
-    x, y = get_shift_data(corr, severity, device=device)
+    _, test_ds = get_app_datasets()
+    x, y = get_shift_data(corr, severity, device=device, test_ds=test_ds)
     return batch_scan(x.cpu(), labels=y, coverage=coverage, max_n=max_n)
 
 
 def scan_clean(coverage=0.9, max_n=800):
     res = get_resources()
-    from src.data import get_clean_datasets
-    _, _, test_ds = get_clean_datasets()
+    from src.data import get_app_datasets
+    _, test_ds = get_app_datasets()
     x = torch.stack([t for t, _ in test_ds])
     y = np.array([l for _, l in test_ds])
     return batch_scan(x, labels=y, coverage=coverage, max_n=max_n)
@@ -216,9 +216,10 @@ def shift_catalog():
 
 
 def get_shift_data(corr, severity):
-    from src.data import get_shift_data as _g
+    from src.data import get_app_datasets, get_shift_data as _g
     res = get_resources()
-    return _g(corr, severity, device=res["device"])
+    _, test_ds = get_app_datasets()
+    return _g(corr, severity, device=res["device"], test_ds=test_ds)
 
 
 def shift_severities():
