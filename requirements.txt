@@ -1,5 +1,26 @@
-torch==2.4.1
-torchvision==0.19.1
+# ---------------------------------------------------------------------------
+# PyTorch needs platform-conditional pins here.
+#
+# Streamlit Community Cloud builds on CPU-only Linux with a limited disk and
+# time budget. The default PyPI `torch` wheel is ~797 MB because it bundles
+# every CUDA runtime, and that download is the usual cause of "Error installing
+# requirements" on the free tier. The `+cpu` build is ~194 MB and is all this
+# project needs -- the model is 2.2M parameters and the deployed app runs
+# inference on CPU regardless.
+#
+# The `+cpu` wheels are only published for Linux and Windows, never for macOS,
+# so a bare `torch==2.4.1+cpu` pin would break local development on a Mac.
+# The environment markers below give Cloud the small wheel and everyone else
+# the standard one.
+# ---------------------------------------------------------------------------
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+torch==2.4.1+cpu; sys_platform == "linux"
+torch==2.4.1; sys_platform != "linux"
+
+torchvision==0.19.1+cpu; sys_platform == "linux"
+torchvision==0.19.1; sys_platform != "linux"
+
 numpy>=1.24,<2.0
 scikit-learn>=1.2
 matplotlib>=3.6
