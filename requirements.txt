@@ -1,30 +1,38 @@
 # ---------------------------------------------------------------------------
-# PyTorch needs platform-conditional pins here.
+# Pinned to the exact versions this project was trained and verified against,
+# so the deployed app runs the same stack that produced the numbers in the
+# paper.
 #
-# Streamlit Community Cloud builds on CPU-only Linux with a limited disk and
-# time budget. The default PyPI `torch` wheel is ~797 MB because it bundles
-# every CUDA runtime, and that download is the usual cause of "Error installing
-# requirements" on the free tier. The `+cpu` build is ~194 MB and is all this
-# project needs -- the model is 2.2M parameters and the deployed app runs
-# inference on CPU regardless.
+# Two separate problems shaped these pins.
 #
-# The `+cpu` wheels are only published for Linux and Windows, never for macOS,
-# so a bare `torch==2.4.1+cpu` pin would break local development on a Mac.
-# The environment markers below give Cloud the small wheel and everyone else
-# the standard one.
+# 1. WHEEL SIZE. The default PyPI `torch` wheel is 797 MB because it bundles
+#    every CUDA runtime, which overruns the free tier's disk budget. The `+cpu`
+#    build is a fraction of that, and it is all this project needs -- a
+#    2.2M-parameter CNN whose deployed inference runs on CPU regardless. The
+#    `+cpu` wheels are published for Linux and Windows only, never for macOS,
+#    so the pins are split by platform rather than pinned globally.
+#
+# 2. PYTHON VERSION. Streamlit Community Cloud ignored `runtime.txt` and
+#    provisioned Python 3.14, for which `torch` publishes no wheels before
+#    2.12.1. `torch==2.14.0+cpu` ships cp310 through cp315, so it installs
+#    whichever Python Cloud happens to provision.
 # ---------------------------------------------------------------------------
 --extra-index-url https://download.pytorch.org/whl/cpu
 
-torch==2.4.1+cpu; sys_platform == "linux"
-torch==2.4.1; sys_platform != "linux"
+torch==2.14.0+cpu; sys_platform == "linux"
+torchvision==0.29.0+cpu; sys_platform == "linux"
 
-torchvision==0.19.1+cpu; sys_platform == "linux"
-torchvision==0.19.1; sys_platform != "linux"
+torch==2.14.0; sys_platform != "linux"
+torchvision==0.29.0; sys_platform != "linux"
 
-numpy>=1.24,<2.0
-scikit-learn>=1.2
-matplotlib>=3.6
+# numpy must stay on 2.x: numpy 1.x publishes no cp313+ wheels at all, so a
+# `numpy<2.0` cap makes the build unsatisfiable on any modern Python.
+numpy==2.4.4
+pandas==2.3.3
+scikit-learn==1.8.0
+matplotlib==3.10.8
+pillow==12.1.1
+
+# Pure-Python wheels, so these resolve on any interpreter and are safe to float.
 streamlit>=1.30
 plotly>=5.18
-pillow>=9.0
-pandas>=1.5
