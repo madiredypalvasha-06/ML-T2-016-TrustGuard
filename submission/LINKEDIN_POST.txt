@@ -1,0 +1,99 @@
+================================================================================
+LINKEDIN POST - ready to paste
+================================================================================
+For form field 21: "Kindly share the LinkedIn testimonial post link here"
+
+You publish this, then paste the post's URL into the form.
+The post is written for LinkedIn, not for a form box - it is shorter and more
+conversational than the long testimonial in field 20.
+
+
+================================================================================
+STEP 1 - COPY THE POST TEXT BELOW
+================================================================================
+
+Something I did not expect to learn from a CIFAR-10 classifier.
+
+For my Track 2 project at LearnDepth Academy I was asked a question that sounds
+simple: can an ML system recognise when it should not trust its own prediction?
+
+The textbook answer is yes. Calibrate the confidence, add abstention, add OOD
+detection. So I implemented all of it - temperature scaling, MC Dropout, a
+4-member deep ensemble, Mahalanobis feature distance. Seven uncertainty signals,
+all evaluated on identical held-out data.
+
+On clean data it worked beautifully. 72% accuracy, ECE of 0.04. Well calibrated.
+
+Then I added noise.
+
+The same checkpoint's confidence climbed to 0.84 while its accuracy fell to 16%.
+And when I finally built the measurement to understand why, the standard
+confidence signal scored 0.31 AUROC at detecting those inputs.
+
+Worse than a coin flip. Actively pointing the wrong way.
+
+The inputs it missed were caught almost perfectly - 0.92 - by a simple
+feature-familiarity score instead.
+
+That was the real lesson, and it was not the one I was expecting. Confidence and
+familiarity are different quantities. Post-hoc calibration re-scales a number; it
+cannot manufacture familiarity with an input the model has never seen. No
+rescaling can.
+
+So the final system fuses several signals into an explicit TRUST / REVIEW /
+ABSTAIN verdict, with thresholds fit on held-out calibration data at a chosen
+coverage target rather than hand-tuned.
+
+Built with PyTorch, scikit-learn for the Ledoit-Wolf covariance, and Streamlit +
+Plotly for an interactive dashboard. Every evaluation metric hand-implemented
+so the definitions were auditable rather than library defaults. Zero cloud
+credits - it runs on a laptop.
+
+The habit I took away: do not treat the assigned problem as a spec. The credit
+for building the expected thing is much lower than the credit for noticing that
+the expected thing is wrong.
+
+Repo and full write-up: https://github.com/madiredypalvasha-06/ML-T2-016-TrustGuard
+
+#MachineLearning #UncertaintyQuantification #DeepLearning #MLOps #Reliability
+
+
+================================================================================
+STEP 2 - POST IT
+================================================================================
+
+1. Go to LinkedIn -> "Start a post" (or the top feed, then the box).
+2. Paste the text above.
+3. BEFORE you click Publish, check the visibility dropdown.
+
+   *** THIS IS THE STEP THAT MATTERS ***
+
+   It must say "Anyone" or "Public".
+
+   Do NOT leave it on "Connections only". Your evaluation team will not be in
+   your connections, so a connections-only post is a dead link for them.
+
+4. Publish.
+5. Open the published post in a fresh INCOGNITO window and confirm it loads with
+   no sign-in prompt. If LinkedIn shows a login wall, go back and fix the
+   visibility setting, then re-test.
+6. Copy the URL from the address bar. It looks like:
+
+   https://www.linkedin.com/posts/<your-name>_trustguard-<id>
+
+   That is what you paste into form field 21.
+
+
+================================================================================
+OPTIONAL - if LinkedIn walls the post anyway
+================================================================================
+If you have confirmed the post is set to "Anyone" and it still shows a login
+wall to logged-out visitors, paste this sentence into field 21 along with the
+link, so the evaluator knows the link is intentional and not a mistake:
+
+  "This post is public. If your browser asks you to sign in, that is a
+   LinkedIn login wall shown to logged-out visitors, not a private post.
+   Post text: <paste the post text here>"
+
+That way the field is not empty and not misleading, and the evaluator still gets
+the testimonial either way.
