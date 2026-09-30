@@ -50,13 +50,27 @@ https://github.com/madiredypalvasha-06/ML-T2-016-TrustGuard
 ================================================================================
 [UPLOAD FILE] not a text field.
 
-    File:   Technical_Paper_ML-T2-016.pdf
-            (in the project folder, and committed to the repo)
-    Size:   0.86 MB   (limit is 10 MB)
-    Pages:  12
+    Full path:  Technical_Paper_ML-T2-016.pdf
 
-IMPORTANT: re-upload it. An earlier version of this file still had a date in
-the header and footer. The current version has it removed.
+    The PDF is in the TOP-LEVEL project folder. It is NOT inside the
+    submission/ folder. The screenshots and the video are in submission/;
+    the paper is one level up, next to README.md.
+
+    Size:   859,341 bytes (0.82 MB)   (limit is 10 MB)
+    Pages:  12
+    Images: 5 embedded figures
+    sha256: 2dbdb5abbc37cfdd...   (to confirm you picked the right file)
+
+HOW TO CONFIRM YOU HAVE THE CURRENT FILE - re-upload it. An earlier version
+still had a date in the header and footer. The current file has none. If the
+size does not read 859,341 bytes, you have the old one.
+
+    Open Terminal, then:
+        shasum -a 256 Technical_Paper_ML-T2-016.pdf | cut -c1-16
+    It must print  2dbdb5abbc37cfdd
+
+    Verified on the current file: 12 pages, all 12 "Page N of 12" footers
+    present, and no occurrence of "2026" or "September" anywhere.
 
 
 ================================================================================
@@ -85,15 +99,22 @@ BEFORE SUBMITTING, CONFIRM:
 ================================================================================
 8. Upload Final Project Screenshots
 ================================================================================
-[UPLOAD 5 FILES] not a text field. All from submission/screenshots/ :
+[UPLOAD 5 FILES] not a text field.
 
-    1. 01_mission_control_trust.png          TRUST verdict, clean input
-    2. 02_mission_control_abstain_ood.png    ABSTAIN on corrupted input
-    3. 03_drift_monitor_watchpoint.png       WATCHPOINT alarm, stream level
-    4. 04_calibration_lab.png                reliability diagrams
-    5. 05_method_showdown.png                all 7 signals compared
+    Folder:  submission/screenshots/
+    Upload all 5. The form accepts exactly 5 files.
 
-    Each is under the 10 MB per-file limit. The form accepts exactly 5.
+    1. 01_mission_control_trust.png       652 KB   TRUST verdict, clean input
+    2. 02_mission_control_abstain_ood.png 675 KB   ABSTAIN on corrupted input
+    3. 03_drift_monitor_watchpoint.png    386 KB   WATCHPOINT alarm, stream level
+    4. 04_calibration_lab.png             367 KB   reliability diagrams
+    5. 05_method_showdown.png             431 KB   all 7 signals compared
+
+    Each is well under the 10 MB per-file limit. To confirm you have all 5:
+
+        ls submission/screenshots/*.png | wc -l
+
+    It must print  5
 
 
 ================================================================================
