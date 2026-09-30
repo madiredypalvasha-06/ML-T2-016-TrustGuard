@@ -1,0 +1,57 @@
+{
+  "summary": {
+    "accuracy": 0.7202,
+    "brier": 0.38381687163255584,
+    "n_examples": 10000,
+    "ece_softmax": 0.04060728333741425,
+    "error_auroc_softmax": 0.8177925022415543,
+    "error_auroc_entropy": 0.7987006329549869,
+    "error_auroc_mc_entropy": 0.7966326167439391,
+    "error_auroc_mc_variance": 0.6878436396529516,
+    "error_auroc_mc_mutual_info": 0.6907192009843981,
+    "temperature": 1.1824160814285278
+  },
+  "coverage_table": {
+    "A. Softmax (MSP)": {
+      "cov_100": 0.7202,
+      "cov_95": 0.742,
+      "cov_90": 0.7629,
+      "cov_80": 0.8047,
+      "cov_70": 0.8424,
+      "cov_50": 0.9162
+    },
+    "D. Entropy": {
+      "cov_100": 0.7202,
+      "cov_95": 0.7386,
+      "cov_90": 0.757,
+      "cov_80": 0.7951,
+      "cov_70": 0.8314,
+      "cov_50": 0.905
+    },
+    "B. MC Dropout (entropy)": {
+      "cov_100": 0.7202,
+      "cov_95": 0.7388,
+      "cov_90": 0.7568,
+      "cov_80": 0.7951,
+      "cov_70": 0.832,
+      "cov_50": 0.9022
+    },
+    "B. MC Dropout (variance)": {
+      "cov_100": 0.7202,
+      "cov_95": 0.7265,
+      "cov_90": 0.7338,
+      "cov_80": 0.7505,
+      "cov_70": 0.7711,
+      "cov_50": 0.8272
+    },
+    "B. MC Dropout (mutual info)": {
+      "cov_100": 0.7202,
+      "cov_95": 0.7274,
+      "cov_90": 0.7357,
+      "cov_80": 0.7544,
+      "cov_70": 0.7736,
+      "cov_50": 0.828
+    }
+  },
+  "temperature": 1.1824160814285278
+}

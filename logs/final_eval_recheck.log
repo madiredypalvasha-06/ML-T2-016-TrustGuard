@@ -1,0 +1,42 @@
+[final-eval] device: mps
+/Users/palvashamadireddy/.pyenv/versions/3.11.9/lib/python3.11/site-packages/torchvision/datasets/cifar.py:83: VisibleDeprecationWarning: dtype(): align should be passed as Python or NumPy boolean but got `align=0`. Did you mean to pass a tuple to create a subarray type? (Deprecated NumPy 2.4)
+  entry = pickle.load(f, encoding="latin1")
+[final-eval] loaded baseline + 3 ensemble members
+[final-eval] temperature = 1.1824
+[final-eval] clean: base_acc=0.7202 ens_acc=0.7709 ece_base=0.0406 ece_ens=0.0820
+[final-eval] gaussian_noise sev1  acc_b=0.5211 acc_e=0.4942 conf=0.613
+[final-eval] gaussian_noise sev3  acc_b=0.2414 acc_e=0.2185 conf=0.712
+[final-eval] gaussian_noise sev5  acc_b=0.1638 acc_e=0.1666 conf=0.841
+[final-eval] motion_blur sev1  acc_b=0.5101 acc_e=0.5455 conf=0.538
+[final-eval] motion_blur sev3  acc_b=0.3280 acc_e=0.3427 conf=0.468
+[final-eval] motion_blur sev5  acc_b=0.2397 acc_e=0.2525 conf=0.461
+[final-eval] fog sev1  acc_b=0.7199 acc_e=0.7716 conf=0.676
+[final-eval] fog sev3  acc_b=0.7011 acc_e=0.7608 conf=0.659
+[final-eval] fog sev5  acc_b=0.6779 acc_e=0.7367 conf=0.637
+[final-eval] brightness sev1  acc_b=0.6323 acc_e=0.6969 conf=0.598
+[final-eval] brightness sev3  acc_b=0.3804 acc_e=0.4730 conf=0.536
+[final-eval] brightness sev5  acc_b=0.1149 acc_e=0.1019 conf=0.504
+[final-eval] contrast sev1  acc_b=0.7189 acc_e=0.7699 conf=0.672
+[final-eval] contrast sev3  acc_b=0.5402 acc_e=0.5922 conf=0.586
+[final-eval] contrast sev5  acc_b=0.1848 acc_e=0.1918 conf=0.427
+[final-eval] IN-vs-OUT AUROC:
+    ens_entropy@contrast_sev5                  0.8618
+    ens_entropy@gaussian_noise_sev5            0.4569
+    ens_fraction_disagree@contrast_sev5        0.7953
+    ens_fraction_disagree@gaussian_noise_sev5  0.7125
+    ens_variance@contrast_sev5                 0.6001
+    ens_variance@gaussian_noise_sev5           0.7062
+    entropy@contrast_sev5                      0.8032
+    entropy@gaussian_noise_sev5                0.2904
+    mahalanobis@contrast_sev5                  0.5167
+    mahalanobis@gaussian_noise_sev5            0.9187
+    mc_entropy@contrast_sev5                   0.8111
+    mc_entropy@gaussian_noise_sev5             0.3140
+    softmax@contrast_sev5                      0.8061
+    softmax@gaussian_noise_sev5                0.3082
+[final-eval] abstain gaussian_noise sev5: softmax=0.1748 (full 0.1638), ens_entropy=0.1794 (full 0.1666), ens_disagree=0.1737 (full 0.1666), mahalanobis=0.1597 (full 0.1666)
+[final-eval] abstain fog sev5: softmax=0.7189 (full 0.6779), ens_entropy=0.7748 (full 0.7367), ens_disagree=0.7597 (full 0.7367), mahalanobis=0.7196 (full 0.7367)
+[final-eval] verdict clean: 0.8015 (acc on trusted: 0.7936)
+[final-eval] verdict gaussian_noise_sev5: 0.2356 (acc on trusted: 0.1163)
+[final-eval] verdict fog_sev5: 0.8398 (acc on trusted: 0.7764)
+[final-eval] saved -> /Users/palvashamadireddy/Downloads/Internship /results/final_eval.json

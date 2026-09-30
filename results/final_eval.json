@@ -1,0 +1,417 @@
+{
+  "clean": {
+    "accuracy_base": 0.7202,
+    "accuracy_ensemble": 0.7718,
+    "ece_base": 0.04060728333741425,
+    "ece_ensemble": 0.10803894804269074,
+    "brier_base": 0.38381687163255584,
+    "brier_ensemble": 0.3368061931883503,
+    "error_auroc": {
+      "softmax": 0.8177925022415543,
+      "entropy": 0.7987006329549869,
+      "mc_entropy": 0.7706369621170811,
+      "ens_entropy": 0.811961078044904,
+      "ens_fraction_disagree": 0.7957412120817084,
+      "ens_variance": 0.6824968278168271,
+      "mahalanobis": 0.3631405942015194
+    },
+    "coverage": {
+      "softmax": {
+        "cov_100": 0.7202,
+        "cov_95": 0.742,
+        "cov_90": 0.7628888888888888,
+        "cov_80": 0.80475,
+        "cov_70": 0.8424285714285714,
+        "cov_50": 0.9162
+      },
+      "entropy": {
+        "cov_100": 0.7202,
+        "cov_95": 0.7386315789473684,
+        "cov_90": 0.757,
+        "cov_80": 0.795125,
+        "cov_70": 0.8314285714285714,
+        "cov_50": 0.905
+      },
+      "mc_entropy": {
+        "cov_100": 0.7718,
+        "cov_95": 0.7872631578947369,
+        "cov_90": 0.8037777777777778,
+        "cov_80": 0.833625,
+        "cov_70": 0.8594285714285714,
+        "cov_50": 0.9146
+      },
+      "ens_entropy": {
+        "cov_100": 0.7718,
+        "cov_95": 0.7929473684210526,
+        "cov_90": 0.8122222222222222,
+        "cov_80": 0.849875,
+        "cov_70": 0.8791428571428571,
+        "cov_50": 0.9336
+      },
+      "ens_fraction_disagree": {
+        "cov_100": 0.7718,
+        "cov_95": 0.7826315789473685,
+        "cov_90": 0.7973333333333333,
+        "cov_80": 0.836625,
+        "cov_70": 0.8675714285714285,
+        "cov_50": 0.9068
+      },
+      "ens_variance": {
+        "cov_100": 0.7718,
+        "cov_95": 0.7762105263157895,
+        "cov_90": 0.7812222222222223,
+        "cov_80": 0.79625,
+        "cov_70": 0.812,
+        "cov_50": 0.8658
+      },
+      "mahalanobis": {
+        "cov_100": 0.7718,
+        "cov_95": 0.7642105263157895,
+        "cov_90": 0.7566666666666667,
+        "cov_80": 0.742125,
+        "cov_70": 0.7278571428571429,
+        "cov_50": 0.7022
+      }
+    }
+  },
+  "shift_rows": [
+    {
+      "corruption": "gaussian_noise",
+      "severity": 1,
+      "acc_base": 0.5211,
+      "acc_ensemble": 0.5379,
+      "ece_base": 0.0948467338040471,
+      "ece_ensemble": 0.03593285493403672,
+      "mean_conf_base": 0.6131296157836914,
+      "err_auroc": {
+        "softmax": 0.7229753033391986,
+        "entropy": 0.7529883117050168,
+        "ens_entropy": 0.7207927758043726,
+        "ens_disagree": 0.7117371454121659,
+        "mahalanobis": 0.3419721689729377
+      }
+    },
+    {
+      "corruption": "gaussian_noise",
+      "severity": 3,
+      "acc_base": 0.2414,
+      "acc_ensemble": 0.2417,
+      "ece_base": 0.47044252251088625,
+      "ece_ensemble": 0.35548490498065943,
+      "mean_conf_base": 0.7118424773216248,
+      "err_auroc": {
+        "softmax": 0.6602242914224542,
+        "entropy": 0.648773981024217,
+        "ens_entropy": 0.6905767866639393,
+        "ens_disagree": 0.644017378550359,
+        "mahalanobis": 0.4018366650005557
+      }
+    },
+    {
+      "corruption": "gaussian_noise",
+      "severity": 5,
+      "acc_base": 0.1638,
+      "acc_ensemble": 0.1682,
+      "ece_base": 0.6774223274409772,
+      "ece_ensemble": 0.46367046898603437,
+      "mean_conf_base": 0.84122234582901,
+      "err_auroc": {
+        "softmax": 0.6464187371267017,
+        "entropy": 0.6268795782070118,
+        "ens_entropy": 0.6674070301244897,
+        "ens_disagree": 0.5909612092909693,
+        "mahalanobis": 0.4208613527844861
+      }
+    },
+    {
+      "corruption": "motion_blur",
+      "severity": 1,
+      "acc_base": 0.5101,
+      "acc_ensemble": 0.5839,
+      "ece_base": 0.04237513915747406,
+      "ece_ensemble": 0.07724367711842058,
+      "mean_conf_base": 0.5376418828964233,
+      "err_auroc": {
+        "softmax": 0.7516204512089113,
+        "entropy": 0.7128980109043694,
+        "ens_entropy": 0.7483710025802929,
+        "ens_disagree": 0.6980860574251507,
+        "mahalanobis": 0.41001455420028887
+      }
+    },
+    {
+      "corruption": "motion_blur",
+      "severity": 3,
+      "acc_base": 0.328,
+      "acc_ensemble": 0.3815,
+      "ece_base": 0.1397441520243883,
+      "ece_ensemble": 0.07814744825959206,
+      "mean_conf_base": 0.4677441418170929,
+      "err_auroc": {
+        "softmax": 0.7031936882984902,
+        "entropy": 0.5837178789198606,
+        "ens_entropy": 0.7265217607813264,
+        "ens_disagree": 0.6332707444447152,
+        "mahalanobis": 0.4179179959124038
+      }
+    },
+    {
+      "corruption": "motion_blur",
+      "severity": 5,
+      "acc_base": 0.2397,
+      "acc_ensemble": 0.2855,
+      "ece_base": 0.22178442328423262,
+      "ece_ensemble": 0.13767820791304114,
+      "mean_conf_base": 0.461484432220459,
+      "err_auroc": {
+        "softmax": 0.644352505386874,
+        "entropy": 0.5161755473749439,
+        "ens_entropy": 0.6879958919504534,
+        "ens_disagree": 0.5687342623832815,
+        "mahalanobis": 0.43818245769701664
+      }
+    },
+    {
+      "corruption": "fog",
+      "severity": 1,
+      "acc_base": 0.7199,
+      "acc_ensemble": 0.7698,
+      "ece_base": 0.044203022064268585,
+      "ece_ensemble": 0.10944348670542242,
+      "mean_conf_base": 0.675787091255188,
+      "err_auroc": {
+        "softmax": 0.8150815702466511,
+        "entropy": 0.799496032586937,
+        "ens_entropy": 0.8099378267206507,
+        "ens_disagree": 0.7963316094830052,
+        "mahalanobis": 0.366640584316867
+      }
+    },
+    {
+      "corruption": "fog",
+      "severity": 3,
+      "acc_base": 0.7011,
+      "acc_ensemble": 0.7558,
+      "ece_base": 0.04179991916269065,
+      "ece_ensemble": 0.11232729855924842,
+      "mean_conf_base": 0.6593890190124512,
+      "err_auroc": {
+        "softmax": 0.8115607080953273,
+        "entropy": 0.801531112104627,
+        "ens_entropy": 0.801630535488699,
+        "ens_disagree": 0.7933843415452306,
+        "mahalanobis": 0.3755973732157908
+      }
+    },
+    {
+      "corruption": "fog",
+      "severity": 5,
+      "acc_base": 0.6779,
+      "acc_ensemble": 0.7312,
+      "ece_base": 0.04081907434910534,
+      "ece_ensemble": 0.114115023458004,
+      "mean_conf_base": 0.6371124982833862,
+      "err_auroc": {
+        "softmax": 0.8036590894529323,
+        "entropy": 0.802057772970648,
+        "ens_entropy": 0.7915424212970199,
+        "ens_disagree": 0.7712008798322393,
+        "mahalanobis": 0.37920078580871625
+      }
+    },
+    {
+      "corruption": "brightness",
+      "severity": 1,
+      "acc_base": 0.6323,
+      "acc_ensemble": 0.6927,
+      "ece_base": 0.034431795476377015,
+      "ece_ensemble": 0.1132557059660554,
+      "mean_conf_base": 0.5981004238128662,
+      "err_auroc": {
+        "softmax": 0.7805699272045613,
+        "entropy": 0.7822449616598875,
+        "ens_entropy": 0.7833274164851799,
+        "ens_disagree": 0.754386958862661,
+        "mahalanobis": 0.42293517854435764
+      }
+    },
+    {
+      "corruption": "brightness",
+      "severity": 3,
+      "acc_base": 0.3804,
+      "acc_ensemble": 0.4728,
+      "ece_base": 0.1551794144541025,
+      "ece_ensemble": 0.027332503862679016,
+      "mean_conf_base": 0.5355347394943237,
+      "err_auroc": {
+        "softmax": 0.6424197813588903,
+        "entropy": 0.6293621898460321,
+        "ens_entropy": 0.6815961684370258,
+        "ens_disagree": 0.6020107665821927,
+        "mahalanobis": 0.5553418163576562
+      }
+    },
+    {
+      "corruption": "brightness",
+      "severity": 5,
+      "acc_base": 0.1149,
+      "acc_ensemble": 0.1029,
+      "ece_base": 0.38899890295863154,
+      "ece_ensemble": 0.35892182796299454,
+      "mean_conf_base": 0.5038988590240479,
+      "err_auroc": {
+        "softmax": 0.4872966515857393,
+        "entropy": 0.3075056842323039,
+        "ens_entropy": 0.554866945743216,
+        "ens_disagree": 0.4956417715261973,
+        "mahalanobis": 0.49146244799813327
+      }
+    },
+    {
+      "corruption": "contrast",
+      "severity": 1,
+      "acc_base": 0.7189,
+      "acc_ensemble": 0.7681,
+      "ece_base": 0.04649443269073961,
+      "ece_ensemble": 0.11128150014430285,
+      "mean_conf_base": 0.6724055409431458,
+      "err_auroc": {
+        "softmax": 0.8132311514503536,
+        "entropy": 0.7978571554757334,
+        "ens_entropy": 0.8076068932153897,
+        "ens_disagree": 0.7914483406605985,
+        "mahalanobis": 0.3732557709336822
+      }
+    },
+    {
+      "corruption": "contrast",
+      "severity": 3,
+      "acc_base": 0.5402,
+      "acc_ensemble": 0.5759,
+      "ece_base": 0.04607339046746492,
+      "ece_ensemble": 0.02454118582755326,
+      "mean_conf_base": 0.5860999822616577,
+      "err_auroc": {
+        "softmax": 0.7442183464664949,
+        "entropy": 0.7093875546553006,
+        "ens_entropy": 0.7375744244811817,
+        "ens_disagree": 0.7374777978914849,
+        "mahalanobis": 0.4379221041471682
+      }
+    },
+    {
+      "corruption": "contrast",
+      "severity": 5,
+      "acc_base": 0.1848,
+      "acc_ensemble": 0.1895,
+      "ece_base": 0.24248410463482134,
+      "ece_ensemble": 0.18256391818225381,
+      "mean_conf_base": 0.4272840917110443,
+      "err_auroc": {
+        "softmax": 0.6241243882466895,
+        "entropy": 0.5206181310511536,
+        "ens_entropy": 0.6702305329619977,
+        "ens_disagree": 0.5897108368234208,
+        "mahalanobis": 0.5446323729285321
+      }
+    }
+  ],
+  "auroc_table": {
+    "softmax@gaussian_noise_sev5": 0.3082138888888889,
+    "entropy@gaussian_noise_sev5": 0.29041744444444445,
+    "mc_entropy@gaussian_noise_sev5": 0.3136111111111111,
+    "ens_entropy@gaussian_noise_sev5": 0.5511567777777778,
+    "ens_variance@gaussian_noise_sev5": 0.9021165555555556,
+    "ens_fraction_disagree@gaussian_noise_sev5": 0.7203334444444445,
+    "mahalanobis@gaussian_noise_sev5": 0.9187325555555556,
+    "softmax@contrast_sev5": 0.8061484444444444,
+    "entropy@contrast_sev5": 0.803198,
+    "mc_entropy@contrast_sev5": 0.8112247777777778,
+    "ens_entropy@contrast_sev5": 0.8215854444444445,
+    "ens_variance@contrast_sev5": 0.5276016666666666,
+    "ens_fraction_disagree@contrast_sev5": 0.7935826666666667,
+    "mahalanobis@contrast_sev5": 0.5167285555555555
+  },
+  "abstain": {
+    "gaussian_noise sev5": {
+      "softmax": {
+        "full_acc": 0.1638,
+        "acc_at_90": 0.17477777777777778,
+        "improvement": 0.01097777777777778
+      },
+      "ens_entropy": {
+        "full_acc": 0.1682,
+        "acc_at_90": 0.18088888888888888,
+        "improvement": 0.012688888888888888
+      },
+      "ens_disagree": {
+        "full_acc": 0.1682,
+        "acc_at_90": 0.1741111111111111,
+        "improvement": 0.005911111111111117
+      },
+      "mahalanobis": {
+        "full_acc": 0.1682,
+        "acc_at_90": 0.16133333333333333,
+        "improvement": -0.00686666666666666
+      }
+    },
+    "fog sev5": {
+      "softmax": {
+        "full_acc": 0.6779,
+        "acc_at_90": 0.7188888888888889,
+        "improvement": 0.040988888888888964
+      },
+      "ens_entropy": {
+        "full_acc": 0.7312,
+        "acc_at_90": 0.77,
+        "improvement": 0.03880000000000006
+      },
+      "ens_disagree": {
+        "full_acc": 0.7312,
+        "acc_at_90": 0.7524444444444445,
+        "improvement": 0.02124444444444451
+      },
+      "mahalanobis": {
+        "full_acc": 0.7312,
+        "acc_at_90": 0.7141111111111111,
+        "improvement": -0.01708888888888882
+      }
+    }
+  },
+  "temperature": 1.1824160814285278,
+  "verdicts": {
+    "clean": {
+      "fraction_trusted": 0.7997,
+      "coverage_reached": 0.7997,
+      "acc_all": 0.7718,
+      "acc_on_trusted": 0.7965487057646617,
+      "flagged_fraction": 0.2003,
+      "mean_mahalanobis_on_clean": 10.83768837695408
+    },
+    "gaussian_noise_sev5": {
+      "fraction_trusted": 0.2226,
+      "coverage_reached": 0.2226,
+      "acc_all": 0.1682,
+      "acc_on_trusted": 0.12443845462713388,
+      "flagged_fraction": 0.7774,
+      "mean_mahalanobis_on_clean": 17.148390170287584
+    },
+    "fog_sev5": {
+      "fraction_trusted": 0.8384,
+      "coverage_reached": 0.8384,
+      "acc_all": 0.7312,
+      "acc_on_trusted": 0.7719465648854962,
+      "flagged_fraction": 0.1616,
+      "mean_mahalanobis_on_clean": 9.673356666513556
+    }
+  },
+  "method_labels": {
+    "softmax": "A. Softmax (MSP)",
+    "entropy": "D. entropy",
+    "mc_entropy": "B. MC Dropout",
+    "ens_entropy": "C. Ensemble",
+    "ens_variance": "C. Ensemble (variance)",
+    "ens_fraction_disagree": "C. Ensemble (disagreement)",
+    "mahalanobis": "D. Mahalanobis distance"
+  }
+}

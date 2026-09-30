@@ -1,0 +1,393 @@
+{
+  "rows": [
+    {
+      "corruption": "gaussian_noise",
+      "severity": 1,
+      "accuracy": 0.5211,
+      "ece": 0.0948467338040471,
+      "mean_conf": 0.6131296157836914,
+      "err_auroc": {
+        "softmax": 0.7229753033391986,
+        "entropy": 0.7179197401901202,
+        "msp_conf": 0.27702469666080143,
+        "mc_entropy": 0.7033178864100377,
+        "mc_variance": 0.5931253506297888
+      }
+    },
+    {
+      "corruption": "gaussian_noise",
+      "severity": 3,
+      "accuracy": 0.2414,
+      "ece": 0.47044252251088625,
+      "mean_conf": 0.7118424773216248,
+      "err_auroc": {
+        "softmax": 0.6602242914224542,
+        "entropy": 0.670108685799136,
+        "msp_conf": 0.33977581779194266,
+        "mc_entropy": 0.6475932970729713,
+        "mc_variance": 0.6223778719455771
+      }
+    },
+    {
+      "corruption": "gaussian_noise",
+      "severity": 5,
+      "accuracy": 0.1638,
+      "ece": 0.6774223274409772,
+      "mean_conf": 0.84122234582901,
+      "err_auroc": {
+        "softmax": 0.6464187371267017,
+        "entropy": 0.6560694945650698,
+        "msp_conf": 0.353581481900066,
+        "mc_entropy": 0.6425062377696381,
+        "mc_variance": 0.6103857153934926
+      }
+    },
+    {
+      "corruption": "motion_blur",
+      "severity": 1,
+      "accuracy": 0.5101,
+      "ece": 0.04237513915747406,
+      "mean_conf": 0.5376418828964233,
+      "err_auroc": {
+        "softmax": 0.751620411192583,
+        "entropy": 0.7261823514466843,
+        "msp_conf": 0.24837958880741698,
+        "mc_entropy": 0.7118592197827808,
+        "mc_variance": 0.4912313275165757
+      }
+    },
+    {
+      "corruption": "motion_blur",
+      "severity": 3,
+      "accuracy": 0.328,
+      "ece": 0.1397441520243883,
+      "mean_conf": 0.4677441418170929,
+      "err_auroc": {
+        "softmax": 0.7031936882984902,
+        "entropy": 0.6932440476190476,
+        "msp_conf": 0.2968063117015099,
+        "mc_entropy": 0.6812124493502865,
+        "mc_variance": 0.445265561687858
+      }
+    },
+    {
+      "corruption": "motion_blur",
+      "severity": 5,
+      "accuracy": 0.2397,
+      "ece": 0.22178442328423262,
+      "mean_conf": 0.461484432220459,
+      "err_auroc": {
+        "softmax": 0.644352505386874,
+        "entropy": 0.6512682371663339,
+        "msp_conf": 0.3556474946131259,
+        "mc_entropy": 0.661815578403786,
+        "mc_variance": 0.45499302784226875
+      }
+    },
+    {
+      "corruption": "fog",
+      "severity": 1,
+      "accuracy": 0.7199,
+      "ece": 0.044203022064268585,
+      "mean_conf": 0.675787091255188,
+      "err_auroc": {
+        "softmax": 0.8150815702466511,
+        "entropy": 0.7976327486874268,
+        "msp_conf": 0.1849184793457023,
+        "mc_entropy": 0.7918883322559793,
+        "mc_variance": 0.6837766645119586
+      }
+    },
+    {
+      "corruption": "fog",
+      "severity": 3,
+      "accuracy": 0.7011,
+      "ece": 0.04179991916269065,
+      "mean_conf": 0.6593890190124512,
+      "err_auroc": {
+        "softmax": 0.8115607080953273,
+        "entropy": 0.7916980242155435,
+        "msp_conf": 0.18843929190467268,
+        "mc_entropy": 0.7909986988950887,
+        "mc_variance": 0.6663933508894944
+      }
+    },
+    {
+      "corruption": "fog",
+      "severity": 5,
+      "accuracy": 0.6779,
+      "ece": 0.04081907434910534,
+      "mean_conf": 0.6371124982833862,
+      "err_auroc": {
+        "softmax": 0.8036590894529323,
+        "entropy": 0.7843796786641215,
+        "msp_conf": 0.1963409563447649,
+        "mc_entropy": 0.7747151172607982,
+        "mc_variance": 0.6373836913083809
+      }
+    },
+    {
+      "corruption": "brightness",
+      "severity": 1,
+      "accuracy": 0.6323,
+      "ece": 0.034431795476377015,
+      "mean_conf": 0.5981004238128662,
+      "err_auroc": {
+        "softmax": 0.7805699272045613,
+        "entropy": 0.7644071608583193,
+        "msp_conf": 0.21943002978407739,
+        "mc_entropy": 0.7584135835842154,
+        "mc_variance": 0.5892438134809443
+      }
+    },
+    {
+      "corruption": "brightness",
+      "severity": 3,
+      "accuracy": 0.3804,
+      "ece": 0.1551794144541025,
+      "mean_conf": 0.5355347394943237,
+      "err_auroc": {
+        "softmax": 0.6424196965037652,
+        "entropy": 0.6343431432646414,
+        "msp_conf": 0.3575803459237974,
+        "mc_entropy": 0.6216061634392516,
+        "mc_variance": 0.48806543467043784
+      }
+    },
+    {
+      "corruption": "brightness",
+      "severity": 5,
+      "accuracy": 0.1149,
+      "ece": 0.38899890295863154,
+      "mean_conf": 0.5038988590240479,
+      "err_auroc": {
+        "softmax": 0.4872967499160996,
+        "entropy": 0.48424516551408736,
+        "msp_conf": 0.5127031517535401,
+        "mc_entropy": 0.48759115622591054,
+        "mc_variance": 0.5613978538635231
+      }
+    },
+    {
+      "corruption": "contrast",
+      "severity": 1,
+      "accuracy": 0.7189,
+      "ece": 0.04649443269073961,
+      "mean_conf": 0.6724055409431458,
+      "err_auroc": {
+        "softmax": 0.8132311514503536,
+        "entropy": 0.794281838646428,
+        "msp_conf": 0.1867688485496464,
+        "mc_entropy": 0.7916024395147778,
+        "mc_variance": 0.6856938606821322
+      }
+    },
+    {
+      "corruption": "contrast",
+      "severity": 3,
+      "accuracy": 0.5402,
+      "ece": 0.04607339046746492,
+      "mean_conf": 0.5860999822616577,
+      "err_auroc": {
+        "softmax": 0.7442183867267436,
+        "entropy": 0.7361400067862676,
+        "msp_conf": 0.2557816535335051,
+        "mc_entropy": 0.7407635780103187,
+        "mc_variance": 0.594393695088516
+      }
+    },
+    {
+      "corruption": "contrast",
+      "severity": 5,
+      "accuracy": 0.1848,
+      "ece": 0.24248410463482134,
+      "mean_conf": 0.4272840917110443,
+      "err_auroc": {
+        "softmax": 0.6241242554877245,
+        "entropy": 0.6452718292910884,
+        "msp_conf": 0.37587561175331047,
+        "mc_entropy": 0.6304171150941809,
+        "mc_variance": 0.5383233904220311
+      }
+    }
+  ],
+  "auroc_table": {
+    "softmax@gaussian_noise_sev5": 0.3082138888888889,
+    "entropy@gaussian_noise_sev5": 0.29041744444444445,
+    "mc_entropy@gaussian_noise_sev5": 0.31344,
+    "mc_variance@gaussian_noise_sev5": 0.6194496666666667,
+    "softmax@contrast_sev5": 0.8061484444444444,
+    "entropy@contrast_sev5": 0.803198,
+    "mc_entropy@contrast_sev5": 0.8116728888888889,
+    "mc_variance@contrast_sev5": 0.7851442222222222
+  },
+  "summary_table": {
+    "gaussian_noise_sev1": {
+      "accuracy": 0.5211,
+      "ece": 0.0948,
+      "mean_conf": 0.6131,
+      "err_auroc_softmax": 0.723,
+      "err_auroc_entropy": 0.7179,
+      "err_auroc_mc_entropy": 0.7033
+    },
+    "gaussian_noise_sev3": {
+      "accuracy": 0.2414,
+      "ece": 0.4704,
+      "mean_conf": 0.7118,
+      "err_auroc_softmax": 0.6602,
+      "err_auroc_entropy": 0.6701,
+      "err_auroc_mc_entropy": 0.6476
+    },
+    "gaussian_noise_sev5": {
+      "accuracy": 0.1638,
+      "ece": 0.6774,
+      "mean_conf": 0.8412,
+      "err_auroc_softmax": 0.6464,
+      "err_auroc_entropy": 0.6561,
+      "err_auroc_mc_entropy": 0.6425
+    },
+    "motion_blur_sev1": {
+      "accuracy": 0.5101,
+      "ece": 0.0424,
+      "mean_conf": 0.5376,
+      "err_auroc_softmax": 0.7516,
+      "err_auroc_entropy": 0.7262,
+      "err_auroc_mc_entropy": 0.7119
+    },
+    "motion_blur_sev3": {
+      "accuracy": 0.328,
+      "ece": 0.1397,
+      "mean_conf": 0.4677,
+      "err_auroc_softmax": 0.7032,
+      "err_auroc_entropy": 0.6932,
+      "err_auroc_mc_entropy": 0.6812
+    },
+    "motion_blur_sev5": {
+      "accuracy": 0.2397,
+      "ece": 0.2218,
+      "mean_conf": 0.4615,
+      "err_auroc_softmax": 0.6444,
+      "err_auroc_entropy": 0.6513,
+      "err_auroc_mc_entropy": 0.6618
+    },
+    "fog_sev1": {
+      "accuracy": 0.7199,
+      "ece": 0.0442,
+      "mean_conf": 0.6758,
+      "err_auroc_softmax": 0.8151,
+      "err_auroc_entropy": 0.7976,
+      "err_auroc_mc_entropy": 0.7919
+    },
+    "fog_sev3": {
+      "accuracy": 0.7011,
+      "ece": 0.0418,
+      "mean_conf": 0.6594,
+      "err_auroc_softmax": 0.8116,
+      "err_auroc_entropy": 0.7917,
+      "err_auroc_mc_entropy": 0.791
+    },
+    "fog_sev5": {
+      "accuracy": 0.6779,
+      "ece": 0.0408,
+      "mean_conf": 0.6371,
+      "err_auroc_softmax": 0.8037,
+      "err_auroc_entropy": 0.7844,
+      "err_auroc_mc_entropy": 0.7747
+    },
+    "brightness_sev1": {
+      "accuracy": 0.6323,
+      "ece": 0.0344,
+      "mean_conf": 0.5981,
+      "err_auroc_softmax": 0.7806,
+      "err_auroc_entropy": 0.7644,
+      "err_auroc_mc_entropy": 0.7584
+    },
+    "brightness_sev3": {
+      "accuracy": 0.3804,
+      "ece": 0.1552,
+      "mean_conf": 0.5355,
+      "err_auroc_softmax": 0.6424,
+      "err_auroc_entropy": 0.6343,
+      "err_auroc_mc_entropy": 0.6216
+    },
+    "brightness_sev5": {
+      "accuracy": 0.1149,
+      "ece": 0.389,
+      "mean_conf": 0.5039,
+      "err_auroc_softmax": 0.4873,
+      "err_auroc_entropy": 0.4842,
+      "err_auroc_mc_entropy": 0.4876
+    },
+    "contrast_sev1": {
+      "accuracy": 0.7189,
+      "ece": 0.0465,
+      "mean_conf": 0.6724,
+      "err_auroc_softmax": 0.8132,
+      "err_auroc_entropy": 0.7943,
+      "err_auroc_mc_entropy": 0.7916
+    },
+    "contrast_sev3": {
+      "accuracy": 0.5402,
+      "ece": 0.0461,
+      "mean_conf": 0.5861,
+      "err_auroc_softmax": 0.7442,
+      "err_auroc_entropy": 0.7361,
+      "err_auroc_mc_entropy": 0.7408
+    },
+    "contrast_sev5": {
+      "accuracy": 0.1848,
+      "ece": 0.2425,
+      "mean_conf": 0.4273,
+      "err_auroc_softmax": 0.6241,
+      "err_auroc_entropy": 0.6453,
+      "err_auroc_mc_entropy": 0.6304
+    }
+  },
+  "abs_effect": {
+    "gaussian_noise sev5": {
+      "softmax": {
+        "full_acc": 0.1638,
+        "acc_at_90": 0.17477777777777778,
+        "risk_reduction": -0.01097777777777778
+      },
+      "entropy": {
+        "full_acc": 0.1638,
+        "acc_at_90": 0.177,
+        "risk_reduction": -0.01319999999999999
+      },
+      "mc_entropy": {
+        "full_acc": 0.1638,
+        "acc_at_90": 0.172,
+        "risk_reduction": -0.008199999999999985
+      },
+      "mc_variance": {
+        "full_acc": 0.1638,
+        "acc_at_90": 0.1671111111111111,
+        "risk_reduction": -0.003311111111111098
+      }
+    },
+    "fog sev5": {
+      "softmax": {
+        "full_acc": 0.6779,
+        "acc_at_90": 0.7188888888888889,
+        "risk_reduction": -0.040988888888888964
+      },
+      "entropy": {
+        "full_acc": 0.6779,
+        "acc_at_90": 0.7151111111111111,
+        "risk_reduction": -0.037211111111111195
+      },
+      "mc_entropy": {
+        "full_acc": 0.6779,
+        "acc_at_90": 0.6777777777777778,
+        "risk_reduction": 0.00012222222222213475
+      },
+      "mc_variance": {
+        "full_acc": 0.6779,
+        "acc_at_90": 0.6715555555555556,
+        "risk_reduction": 0.006344444444444375
+      }
+    }
+  },
+  "temperature": 1.1824160814285278
+}
