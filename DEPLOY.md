@@ -23,14 +23,22 @@ interact with the dashboard themselves. It is the strongest option for the
    | Repository | `madiredypalvasha-06/ML-T2-016-TrustGuard` |
    | Branch | `main` |
    | Main file path | `app/app.py` |
-   | Python version | `3.11` |
+   | Python version | `3.12` (any of 3.12/3.13/3.14 works) |
 
-4. Click **Deploy**. Watch the logs; the first build installs PyTorch
-   (~800 MB) and takes 3–6 minutes. Two things to expect in the log, both
-   normal:
+4. Click **Deploy**. Watch the logs; the first build downloads the CPU-only
+   PyTorch wheel (~196 MB) and takes 3–6 minutes. Two things to expect in the
+   log, both normal:
    * `cifar-10-python.tar.gz` downloading — CIFAR-10 is fetched on first use
      by `torchvision` and is intentionally not committed to the repository.
-   * `Creating wheel for torch ... done` — the slow step.
+   * a long `Downloading torch-2.14.0+cpu-...whl (196.1 MB)` line — the slow
+     step.
+
+   If the build reports `No matching distribution found`, check the
+   `Using Python X.Y.Z environment` line near the top of the log first. Cloud
+   provisions its own interpreter and can ignore `runtime.txt`, so a pin that
+   has no wheel for that interpreter fails even though it is correct in
+   isolation. `requirements.txt` is pinned to versions that publish wheels for
+   CPython 3.12, 3.13 and 3.14 to keep that from happening.
 5. When it finishes you get a URL of the form
    `https://ml-t2-016-trustguard.streamlit.app`. **That is your demo URL.**
 
@@ -87,9 +95,21 @@ classifier's confidence looks healthy while its accuracy has collapsed.
 
 ## Troubleshooting
 
-**`torch` wheel build fails.** Free-tier builds occasionally time out on the
-PyTorch install. Redeploy, or pin a smaller wheel in `requirements.txt`
-(`torch==2.4.1+cpu`) and add a `packages.txt` if a system library is missing.
+**`Error installing requirements` / `No matching distribution found`.** Almost
+always a Python-version problem rather than a bad requirement. Scroll up to the
+`Using Python X.Y.Z environment` line: Cloud chooses the interpreter and may
+ignore `runtime.txt`, and a package pinned to a version with no wheel for that
+interpreter will fail. Two that have bitten this project: `torch` publishes no
+wheels before 2.12.1 for Python 3.14, and `numpy` 1.x publishes none at all
+for Python 3.13+, so a `numpy<2.0` cap makes any modern Python unsatisfiable.
+`requirements.txt` is pinned to versions with cp312/cp313/cp314 wheels to avoid
+this; if you edit the pins, check the new version against the deployed
+interpreter first.
+
+**Build is slow or runs out of disk.** The pins use the CPU-only PyTorch build
+(`torch==2.14.0+cpu`, ~196 MB) instead of the default PyPI wheel, which is
+~797 MB because it bundles every CUDA runtime. If that regresses, check whether
+a `+cpu` pin was dropped for Linux.
 
 **App shows "engine revving up" for minutes on first load.** That is the
 CIFAR-10 download plus the first threshold fit. Reload after a minute.
