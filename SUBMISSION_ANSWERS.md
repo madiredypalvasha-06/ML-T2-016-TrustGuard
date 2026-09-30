@@ -126,8 +126,8 @@ collapses to 16.4% and ECE explodes to 0.68. Critically, the softmax signal's
 IN-vs-OUT AUROC is 0.3082 — worse than a coin flip, i.e. actively inverted.
 The very same inputs are caught almost perfectly by Mahalanobis distance
 (0.9187) and deep-ensemble variance (0.9021). No single score wins everywhere:
-Mahalanobis is the BEST error detector among neither — it is the worst on clean
-data (0.3631) and the best under shift.
+Mahalanobis is the clearest illustration — it is the worst error detector on
+clean data (0.3631) and the best under shift.
 
 So the final system fuses calibrated confidence, ensemble entropy and feature
 familiarity into a single three-way verdict with human-readable reasons
