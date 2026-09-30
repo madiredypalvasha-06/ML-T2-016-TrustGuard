@@ -9,7 +9,6 @@
 | **Author** | Palvasha Madireddy |
 | **Organisation** | Learn Depth™ Academy LLP — Track 2 (Advanced Machine Learning) Internship |
 | **Task** | Technical report describing the Development-stage work for Problem ML-T2-016 |
-| **Date** | September 2026 |
 
 ---
 

@@ -414,7 +414,7 @@ def main() -> int:
                     'border-bottom:0.4pt solid #d7dce3;">'
                     "<span>ML-T2-016 &middot; Teaching a Machine Learning System "
                     "When Not to Trust Its Own Prediction</span>"
-                    "<span>Technical Report &middot; September 2026</span>"
+                    "<span>Technical Report</span>"
                     "</div>"
                 ),
                 footer_template=(
