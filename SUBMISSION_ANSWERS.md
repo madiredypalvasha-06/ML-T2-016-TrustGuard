@@ -61,17 +61,33 @@ https://github.com/madiredypalvasha-06/ML-T2-016-TrustGuard
 Upload `Technical_Paper_ML-T2-016.pdf`
 
 ### Demo Video Link / Deployment URL
-⚠️ **Your input — one of these two:**
+✅ **Paste this (Option A — the live app):**
 
-**Option A — deploy the live app (recommended).** The repo is deploy-ready;
-follow `DEPLOY.md` (≈3 min) and paste the resulting
-`https://ml-t2-016-trustguard.streamlit.app`. A live URL lets the evaluator
-interact with the system themselves, which is much stronger than a video.
+```
+https://ml-t2-016-trustguard-e5kkubzkekljbgrw9fvzkb.streamlit.app
+```
 
-**Option B — upload the video.** Upload `submission/TrustGuard_demo_walkthrough.mp4`
-to Google Drive, set link sharing to "Anyone with the link → Viewer", and paste
-the link. **Open it in an incognito window first to confirm it plays for
-someone not signed in.**
+A live URL lets the evaluator interact with the system themselves, which is
+much stronger than a video.
+
+⚠️ Note the random suffix. Streamlit's free tier appends one to the app name,
+so the URL is *not* the bare `ml-t2-016-trustguard.streamlit.app`; copy the
+address from the browser or the dashboard rather than retyping it.
+
+Before submitting, confirm two things:
+* **Viewer access is Public** (dashboard → Settings). The app is private by
+  default and a judge would hit a login wall.
+* It loads in an **incognito window**. The owner is always signed in, which
+  hides the login wall from you.
+
+**Option B — if you'd rather submit the video.** Upload
+`submission/TrustGuard_demo_walkthrough.mp4` (3:17, 5.3 MB) to Google Drive,
+set link sharing to "Anyone with the link → Viewer", and paste that link.
+Open it in an incognito window first to confirm it plays for someone not
+signed in.
+
+You can also submit **both** if the form allows only one: the URL in this
+field, and the video in the video field if there is a separate one.
 
 ### Upload Final Project Screenshots
 Upload all 5 PNGs listed in the manifest above.
